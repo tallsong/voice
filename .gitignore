@@ -1,0 +1,7 @@
+*.pyc
+*.wav
+*.webm
+res.json
+uwsgi_voice.log
+uwsgi_voice.pid
+res.json
