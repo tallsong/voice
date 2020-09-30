@@ -12,6 +12,7 @@ requests==2.24.0
 six==1.12.0
 sqlparse==0.3.1
 urllib3==1.25.10
+uWSGI==2.0.19.1
 websocket==0.2.1
 websocket-client==0.56.0
 zope.event==4.4

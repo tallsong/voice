@@ -12,7 +12,7 @@ function upload(data, text) {
     if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
       var json = httpRequest.responseText;//获取到服务端返回的数据
       var score = JSON.parse(json).data.read_sentence.rec_paper.read_sentence.sentence.total_score;
-
+      console.log( score)
       alert("总分是" + score)
 
     }
@@ -89,3 +89,29 @@ if (navigator.mediaDevices.getUserMedia) {
 } else {
   console.error("浏览器不支持 getUserMedia");
 }
+var td = document.getElementsByTagName("td");
+
+
+function removeBgc(){
+  Array.from(td).forEach(function (element){
+    if (element.hasAttribute("value")) {
+      element.style.backgroundColor= 'transparent';
+    }
+  });
+}
+
+Array.from(td).forEach(function (element) {
+  element.addEventListener("click", function () {
+    if (element.hasAttribute("value")) {
+      evaluate_text.setAttribute("value", element.innerHTML);
+      removeBgc()
+      element.style.backgroundColor = "green"
+
+    }
+
+  });
+});
+
+
+
+

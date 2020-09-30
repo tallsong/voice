@@ -5,3 +5,5 @@ res.json
 uwsgi_voice.log
 uwsgi_voice.pid
 res.json
+uwsgi.pid
+uwsgi.log

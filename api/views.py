@@ -17,7 +17,9 @@ import time
 import requests
 
 
-
+MYDIC = {"ba": "八", "bo": "拨", "bi": "逼", "bu": "晡", "pa": "趴", "po": "坡", "pi": "批", "pu": "扑", "ma": "妈", "mo": "摸", "me": "嚒", "mi": "眯", "mu": "毪",
+         "fa": "发", "fo": "佛", "fu": "夫", "da": "搭", "de": "嘚", "di": "低", "du": "督", "ta": "它", "te": "特", "ti": "梯", "tu": "秃", "na": "拿", "ne": "讷", "ni": "妮", "nu": "奴",
+         "nü": "女", "la": "垃", "le": "嘞", "li": "哩", "lu": "嚕", "lü": "吕"}
 
 
 
@@ -74,6 +76,8 @@ class IndexView(View):
         #print(voice(data.read()))
         #print(request.FILES)
         text=request.POST.get("text")
+        if(text in MYDIC):
+            text=MYDIC[text]
         fileid = time.time()
         # with(open('./a.wav','wb+')) as f:
         #     f.write(data.read())

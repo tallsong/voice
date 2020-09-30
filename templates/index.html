@@ -1,18 +1,125 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>audio record</title>
+    <style>
+         html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0; 
+            padding: 0;
+        }
+        table tr td {
+            border: 1px solid black;
+            width: 100px;
+        }
+
+        td:first-child{background-color:cornflowerblue }
+    </style>
 </head>
+
 <body>
-    <div class="app">
-        <button class="record-btn">record</button>
-        测评文本:<input type="text" value="不管我的梦想能否成为事实" id="evaluate_text">
-        <audio controls class="audio-player"></audio>
+    <div>
+        <table style=" margin:0 auto; text-align:center;border-collapse:collapse;" >
+            <tr style="background-color: cornflowerblue;">
+                <td></td>
+                <td>a</td>
+                <td>o</td>
+                <td>e</td>
+                <td>i</td>
+                <td>u</td>
+                <td>ü</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td value="吧">ba</td>
+                <td value="波">bo</td>
+                <td></td>
+                <td value="逼">bi</td>
+                <td value="逋">bu</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>p</td>
+                <td value="啪">pa</td>
+                <td value="泼">po</td>
+                <td></td>
+                <td value="劈">pi</td>
+                <td value="扑">pu</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>m</td>
+                <td value="吗">ma</td>
+                <td value="摸">mo</td>
+                <td value="么">me</td>
+                <td value="咪">mi</td>
+                <td value="木">mu</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>f</td>
+                <td value="伐">fa</td>
+                <td value="佛">fo</td>
+                <td></td>
+                <td></td>
+                <td value="夫">fu</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>d</td>
+                <td value="哒">da</td>
+                <td></td>
+                <td value="得">de</td>
+                <td value="滴">di</td>
+                <td value="滴">du</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>t</td>
+                <td value="她">ta</td>
+                <td></td>
+                <td value="特">te</td>
+                <td value="替">ti</td>
+                <td value="图">tu</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>n</td>
+                <td value="拿">na</td>
+                <td></td>
+                <td value="呐">ne</td>
+                <td value="妮">ni</td>
+                <td value="怒">nu</td>
+                <td value="女">nü</td>
+            </tr>
+            <tr>
+                <td>l</td>
+                <td value="拉">la</td>
+                <td></td>
+                <td value="乐">le</td>
+                <td value="李">li</td>
+                <td value="卢">lu</td>
+                <td value="吕">lü</td>
+            </tr>
+        </table>
+        <div class="app" style="text-align:center">
+            <button class="record-btn">record</button>
+            测评文本:<input type="text" value="不管我的梦想能否成为事实" id="evaluate_text">
+            <audio controls class="audio-player"></audio>
+        </div>
+
     </div>
+
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
     <script src="{% static 'recorder.js' %}"></script>
 </body>
+
 </html>
