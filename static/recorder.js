@@ -1,3 +1,8 @@
+const recordBtn = document.querySelector(".record-btn");
+const player = document.querySelector(".audio-player");
+const recordBtn_synthesis = document.querySelector(".record_btn_synthesis");
+const player_synthesis = document.querySelector(".audio-player_synthesis");
+
 function upload(data, text) {
   var httpRequest = new XMLHttpRequest();
   httpRequest.open('POST', '/');
@@ -12,17 +17,14 @@ function upload(data, text) {
     if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
       var json = httpRequest.responseText;//获取到服务端返回的数据
       var score = JSON.parse(json).data.read_sentence.rec_paper.read_sentence.sentence.total_score;
-      console.log( score)
+      console.log(score)
       alert("总分是" + score)
 
     }
   };
 }
+
 //https://www.freesion.com/article/5984902147/
-
-const recordBtn = document.querySelector(".record-btn");
-const player = document.querySelector(".audio-player");
-
 if (navigator.mediaDevices.getUserMedia) {
   var chunks = [];
   const constraints = { audio: true };
@@ -61,10 +63,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
       mediaRecorder.ondataavailable = e => {
         chunks.push(e.data);
-
-
       };
-
       mediaRecorder.onstop = e => {
         var blob = new Blob(chunks, { type: "audio/ogg;codecs=opus" });  //编解码器为opus
         //console.log(Blob);
@@ -92,10 +91,10 @@ if (navigator.mediaDevices.getUserMedia) {
 var td = document.getElementsByTagName("td");
 
 
-function removeBgc(){
-  Array.from(td).forEach(function (element){
+function removeBgc() {
+  Array.from(td).forEach(function (element) {
     if (element.hasAttribute("value")) {
-      element.style.backgroundColor= 'transparent';
+      element.style.backgroundColor = 'transparent';
     }
   });
 }
@@ -114,10 +113,9 @@ Array.from(td).forEach(function (element) {
 
 
 
-const recordBtn_synthesis = document.querySelector(".record_btn_synthesis");
-const player_synthesis = document.querySelector(".audio-player_synthesis");
 
-function download_synthesis(text,player) {
+
+function download_synthesis(text, player) {
   var httpRequest = new XMLHttpRequest();
   httpRequest.responseType = "blob";
   httpRequest.open('POST', '/index2');
@@ -135,7 +133,6 @@ function download_synthesis(text,player) {
       console.log(myblob);
       recordBtn_synthesis.textContent = "synthesise";
 
-
     }
   };
 }
@@ -148,18 +145,15 @@ recordBtn_synthesis.onclick = () => {
     var evaluate_tex = document.getElementById('evaluate_text_synthesis');
     console.log(evaluate_tex.value.length)
     if (evaluate_tex.value.length > 0) {
-      download_synthesis(evaluate_tex.value,player_synthesis);
+      download_synthesis(evaluate_tex.value, player_synthesis);
     } else {
       alert("请输入测评文本")
     }
     recordBtn_synthesis.textContent = "synthesising";
     console.log("录音结束");
-
-
   } else {
     console.log("不要急慢慢来...");
   }
-
 };
 
 
