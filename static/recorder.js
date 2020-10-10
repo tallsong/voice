@@ -91,7 +91,7 @@ if (navigator.mediaDevices.getUserMedia) {
 var td = document.getElementsByTagName("td");
 
 
-function removeBgc() {
+function removeBgc(td) {
   Array.from(td).forEach(function (element) {
     if (element.hasAttribute("value")) {
       element.style.backgroundColor = 'transparent';
@@ -103,7 +103,7 @@ Array.from(td).forEach(function (element) {
   element.addEventListener("click", function () {
     if (element.hasAttribute("value")) {
       evaluate_text.setAttribute("value", element.innerHTML);
-      removeBgc()
+      removeBgc(td)
       element.style.backgroundColor = "green"
 
     }
@@ -115,7 +115,7 @@ Array.from(td).forEach(function (element) {
 
 
 
-function download_synthesis(text, player) {
+function download_synthesis(text, player,recordBtn) {
   var httpRequest = new XMLHttpRequest();
   httpRequest.responseType = "blob";
   httpRequest.open('POST', '/index2');
@@ -131,7 +131,7 @@ function download_synthesis(text, player) {
       console.log(audioURL);
       player.src = audioURL;
       console.log(myblob);
-      recordBtn_synthesis.textContent = "synthesise";
+      recordBtn.textContent = "synthesise";
 
     }
   };
@@ -145,7 +145,7 @@ recordBtn_synthesis.onclick = () => {
     var evaluate_tex = document.getElementById('evaluate_text_synthesis');
     console.log(evaluate_tex.value.length)
     if (evaluate_tex.value.length > 0) {
-      download_synthesis(evaluate_tex.value, player_synthesis);
+      download_synthesis(evaluate_tex.value, player_synthesis,recordBtn_synthesis);
     } else {
       alert("请输入测评文本")
     }
