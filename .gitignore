@@ -1,9 +1,7 @@
 *.pyc
 *.wav
 *.webm
-res.json
-uwsgi_voice.log
-uwsgi_voice.pid
+*.mp3
 res.json
 uwsgi.pid
 uwsgi.log
