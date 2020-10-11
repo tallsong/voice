@@ -5,3 +5,4 @@
 res.json
 uwsgi.pid
 uwsgi.log
+supervisor.log
