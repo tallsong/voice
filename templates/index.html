@@ -8,24 +8,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>audio record</title>
     <style>
-         html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
-            margin: 0; 
+            margin: 0;
             padding: 0;
         }
+
         table tr td {
             border: 1px solid black;
             width: 100px;
         }
 
-        td:first-child{background-color:cornflowerblue }
+        td:first-child {
+            background-color: cornflowerblue
+        }
     </style>
+    <!-- 【1.1】引入核心文件 -->
+    <script src="{% static 'src/recorder-core.js' %}"></script>
+
+    <!-- 【1.2】引入相应格式支持文件；如果需要多个格式支持，把这些格式的编码引擎js文件放到后面统统加载进来即可 -->
+    <script src="{% static 'src/mp3.js' %}"></script>
+    <script src="{% static 'src/mp3-engine.js' %}"></script>
+
+    <!-- 【1.3】引入可选的扩展支持项，如果不需要这些扩展功能可以不引入 -->
+    <script src="{% static 'src/frequency.histogram.view.js' %}"></script>
+    <script src="{% static 'src/lib.fft.js' %}"></script>
+
 </head>
 
 <body>
     <div>
-        <table style=" margin:0 auto; text-align:center;border-collapse:collapse;" >
+        <table style=" margin:0 auto; text-align:center;border-collapse:collapse;">
             <tr style="background-color: cornflowerblue;">
                 <td></td>
                 <td>a</td>
@@ -116,18 +131,17 @@
             <br>
             <br>
 
-            <button class="record_btn_synthesis" >synthesise</button>
+            <button class="record_btn_synthesis">synthesise</button>
             synthesis text<input type="text" value="不管我的梦想能否成为事实" id="evaluate_text_synthesis">
             <audio controls class="audio-player_synthesis"></audio>
         </div>
-      
-            
-     
+
+
+
 
     </div>
 
 
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 
     <script src="{% static 'recorder.js' %}"></script>
 </body>
