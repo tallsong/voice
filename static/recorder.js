@@ -364,6 +364,7 @@ Array.from(td).forEach(function (element) {
   element.addEventListener("click", function () {
     if (element.hasAttribute("value")) {
       evaluate_text.setAttribute("value", element.innerHTML);
+      evaluate_text_synthesis.setAttribute("value", element.innerHTML);
       removeBgc(td)
       element.style.backgroundColor = "green"
 
